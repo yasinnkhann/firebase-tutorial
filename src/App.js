@@ -67,6 +67,7 @@ function App() {
             Increase Age
           </button>
           <br />
+          <br />
           <button 
             onClick={() => deleteUser(user.id)}>
               Delete User
