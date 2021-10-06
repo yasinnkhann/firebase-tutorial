@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { db } from './firebase-config.js';
 import { 
   collection, 
@@ -15,6 +15,8 @@ function App() {
   const [newName, setNewName] = useState('');
   const [newAge, setNewAge] = useState(0);
   const usersCollectionRef = collection(db, 'users');
+  const inputNameRef = useRef(null);
+  const inputAgeRef = useRef(null);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -29,6 +31,8 @@ function App() {
       name: newName,
       age: Number(newAge),
     });
+    inputNameRef.current.value = '';
+    inputAgeRef.current.value = '';
   };
 
   const updateUser = async (id, age) => {
@@ -48,11 +52,13 @@ function App() {
         type="text" 
         placeholder="Name.."
         onChange={(e) => setNewName(e.target.value)}
+        ref={inputNameRef}
       />
       <input 
         type="number" 
         placeholder="Age.."
         onChange={(e) => setNewAge(e.target.value)}
+        ref={inputAgeRef}
       />
       <button 
         onClick={() => createUser()}>
