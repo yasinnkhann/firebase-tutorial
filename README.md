@@ -1,18 +1,23 @@
 ### Firebase Notes
 import core firebase client (required)
-    import firebase from '@firebase/app';
-
+```
+import firebase from '@firebase/app';
+```
 import Firebase Authentication (optional)
-    import '@firebase/auth';
-
+```
+import '@firebase/auth';
+```
 import Firebase Realtime Database (optional)
-    import '@firebase/database';
-
+```
+import '@firebase/database';
+```
 import Cloud Firestore (optional)
-    import '@firebase/firestore';
-
+```
+import '@firebase/firestore';
+```
 ------------------------------------------------------------------------
-### Web Version 9
+#### Web Version 9
+```
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth();
@@ -27,8 +32,10 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     // ..
   });
+```
 ------------------------------------------------------------------------
-  ### Web Version 8
+  #### Web Version 8
+```
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     // Signed in 
@@ -40,8 +47,10 @@ createUserWithEmailAndPassword(auth, email, password)
     var errorMessage = error.message;
     // ..
   });
+```
 ------------------------------------------------------------------------
-### Example 
+#### Example 
+```
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
@@ -133,8 +142,10 @@ export default function Auth() {
   }
 
   return <div className="auth">{content}</div>;
+```
 ---------------------------------------------------------------------------
-### This works for version 8 style
+#### This works for version 8 style
+```
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth'; 
@@ -147,3 +158,4 @@ const db = firebaseApp.firestore();
 const auth = firebase.auth();
 
 export { db, auth };
+```
